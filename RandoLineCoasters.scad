@@ -37,7 +37,7 @@ module RandoLineCoasterRound3D(
     fn = DEFAULT_FN)
 {
     linear_extrude(thickness)
-    RandoLineCoasterRound2D(numLines, radius, fn);
+    RandoLineCoasterRound2D(numLines, radius, thickness, fn);
 }
 
 RandoLineCoasterRound2D();
