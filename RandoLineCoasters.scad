@@ -20,7 +20,7 @@ module RandoLineCoasterRound2D(
 
     intersection()
     {
-        circle(r = radius, $fn = fn);
+        circle($fn = fn, r = radius);
         for (i = [0 : numLines - 1])
         {
             s1 = seeds[i * 2 + 0];
