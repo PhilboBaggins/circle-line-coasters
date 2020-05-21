@@ -2,15 +2,17 @@
 include <common.scad>;
 
 DEFAULT_NUM_LINES = 30;
+DEFAULT_SEED = 1; // Mostly used when previewing in OpenSCAD GUI
 
 module RandoLineCoasterRound2D(
+    initialSeed = undef,
     numLines = DEFAULT_NUM_LINES,
     radius = DEFAULT_COASTER_RADIUS,
     thickness = DEFAULT_THICKNESS,
     fn = DEFAULT_FN)
 {
-    initialSeed = 0.1;
-    seeds = rands(0, 1, 2 * numLines, initialSeed);
+    seed = (initialSeed == undef) ? DEFAULT_SEED : initialSeed;
+    seeds = rands(0, 1, 2 * numLines, seed);
 
     difference()
     {
@@ -35,14 +37,12 @@ module RandoLineCoasterRound2D(
 }
 
 module RandoLineCoasterRound3D(
+    initialSeed = undef,
     numLines = DEFAULT_NUM_LINES,
     radius = DEFAULT_COASTER_RADIUS,
     thickness = DEFAULT_THICKNESS,
     fn = DEFAULT_FN)
 {
     linear_extrude(thickness)
-    RandoLineCoasterRound2D(numLines, radius, thickness, fn);
+    RandoLineCoasterRound2D(initialSeed, numLines, radius, thickness, fn);
 }
-
-RandoLineCoasterRound2D();
-//RandoLineCoasterRound3D();
