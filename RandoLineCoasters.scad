@@ -14,12 +14,14 @@ module RandoLineCoasterRound2D(
     seed = (initialSeed == undef) ? DEFAULT_SEED : initialSeed;
     seeds = rands(0, 1, 2 * numLines, seed);
 
+    // Main coaster outline
     difference()
     {
         circle($fn = fn, r = radius);
         circle($fn = fn, r = radius - thickness);
     }
 
+    // Random lines
     intersection()
     {
         circle($fn = fn, r = radius);
