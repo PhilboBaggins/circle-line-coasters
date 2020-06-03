@@ -1,7 +1,6 @@
-
 include <common.scad>;
 
-DEFAULT_NUM_LINES = 24;
+DEFAULT_NUM_LINES = 13;
 DEFAULT_STARTING_POINT = [0, 0];
 DEFAULT_SEED = 1; // Mostly used when previewing in OpenSCAD GUI
 
@@ -19,7 +18,7 @@ module LinesFromPointCoaster2D(
         circle($fn = fn, r = radius - thickness);
     }
 
-    // Lines
+    // Lines radiating out from the starting point
     intersection()
     {
         circle($fn = fn, r = radius);
