@@ -33,7 +33,7 @@ module RandoLineCoasterRound2D(
             r = rands(0, 360, 1, s2)[0];
             translate(xy)
             rotate([0, 0, r])
-            square([radius * 10, thickness]);
+            square([radius * 10, thickness], center=true);
         }
     }
 }
