@@ -1,6 +1,6 @@
 include <../common.scad>;
 
-DEFAULT_NUM_LINES = 13;
+DEFAULT_NUM_LINES = 23;
 DEFAULT_STARTING_POINT = [0, 0];
 DEFAULT_SEED = 1; // Mostly used when previewing in OpenSCAD GUI
 
