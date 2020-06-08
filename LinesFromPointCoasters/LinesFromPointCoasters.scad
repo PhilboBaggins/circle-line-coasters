@@ -2,7 +2,6 @@ include <../common.scad>;
 
 DEFAULT_NUM_LINES = 23;
 DEFAULT_STARTING_POINT = [0, 0];
-DEFAULT_SEED = 1; // Mostly used when previewing in OpenSCAD GUI
 
 module LinesFromPointCoaster2D(
     startingPoint = DEFAULT_STARTING_POINT,
@@ -44,28 +43,29 @@ module LinesFromPointCoaster3D(
     RandoLineCoasterRound2D(startingPoint, numLines, radius, thickness, fn);
 }
 
-module LinesFromRandomPointCoaster2D(
-    initialSeed = undef,
+module LinesFromPointCoaster2D_Array(
     numLines = DEFAULT_NUM_LINES,
     radius = DEFAULT_COASTER_RADIUS,
     thickness = DEFAULT_THICKNESS,
     fn = DEFAULT_FN)
 {
     maxDist = radius - thickness;
-
-    seed = (initialSeed == undef) ? DEFAULT_SEED : initialSeed;
-    startingPoint = rands(-maxDist, maxDist, 2, seed);
-    echo(startingPoint);
-    LinesFromPointCoaster2D(startingPoint, numLines, radius, thickness, fn);
+    for (x = [-maxDist : maxDist])
+    {
+        translate([x * radius * 2, 0])
+        LinesFromPointCoaster2D([x, 0], numLines, radius, thickness, fn);
+            
+        translate([x * radius * 2, radius * -2])
+        text(str(x));
+    }
 }
 
-module LinesFromRandomPointCoaster3D(
-    initialSeed = undef,
+module LinesFromPointCoaster3D_Array(
     numLines = DEFAULT_NUM_LINES,
     radius = DEFAULT_COASTER_RADIUS,
     thickness = DEFAULT_THICKNESS,
     fn = DEFAULT_FN)
 {
     linear_extrude(thickness)
-    LinesFromRandomPointCoaster2D(initialSeed, numLines, radius, thickness, fn);
+    LinesFromPointCoaster2D_Array(numLines, radius, thickness, fn);
 }
