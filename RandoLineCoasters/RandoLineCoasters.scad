@@ -1,5 +1,4 @@
-
-include <common.scad>;
+include <../common.scad>;
 
 DEFAULT_NUM_LINES = 30;
 DEFAULT_SEED = 1; // Mostly used when previewing in OpenSCAD GUI

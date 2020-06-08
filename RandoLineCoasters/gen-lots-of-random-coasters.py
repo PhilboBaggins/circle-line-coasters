@@ -48,7 +48,6 @@ def main(start, end, increment, outDir, verbose=0):
 
     # Get the path to the import file relative to the output dir, so that OpenSCAD can import it properly
     importFilePath = os.path.relpath(importFilePath)
-    print(importFilePath)
 
     for x in drange(start, end, increment):
         if verbose > 0:
@@ -88,7 +87,7 @@ if __name__ == '__main__':
     parser.add_argument('-o', '--output-dir',
                         action='store',
                         dest='outDir',
-                        default='random-line-coasters',
+                        default='exports',
                         help='Output directory')
 
     args = parser.parse_args()

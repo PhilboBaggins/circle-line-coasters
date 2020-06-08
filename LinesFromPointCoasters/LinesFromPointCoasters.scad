@@ -1,4 +1,4 @@
-include <common.scad>;
+include <../common.scad>;
 
 DEFAULT_NUM_LINES = 13;
 DEFAULT_STARTING_POINT = [0, 0];
