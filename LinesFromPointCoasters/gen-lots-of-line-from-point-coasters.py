@@ -24,8 +24,8 @@ def genOpenScadSource(importFilePath, startingPoint, withBorder):
     use <%s>;
 
     startingPoint = [%s, 0];
-    withBoarder = %s;
-    LinesFromPointCoaster2D(startingPoint=startingPoint, withBoarder=withBoarder);
+    withBorder = %s;
+    LinesFromPointCoaster2D(startingPoint=startingPoint, withBorder=withBorder);
     ''' % (importFilePath, startingPoint, "true" if withBorder else "false")).strip()
 
 

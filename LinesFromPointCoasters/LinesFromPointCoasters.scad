@@ -10,10 +10,10 @@ module LinesFromPointCoaster2D(
     radius = DEFAULT_COASTER_RADIUS,
     thickness = DEFAULT_THICKNESS,
     fn = DEFAULT_FN,
-    withBoarder = DEFAULT_WITH_BORDER)
+    withBorder = DEFAULT_WITH_BORDER)
 {
     // Main coaster outline
-    if (withBoarder)
+    if (withBorder)
     {
         difference()
         {
@@ -43,7 +43,7 @@ module LinesFromPointCoaster3D(
     radius = DEFAULT_COASTER_RADIUS,
     thickness = DEFAULT_THICKNESS,
     fn = DEFAULT_FN,
-    withBoarder = DEFAULT_WITH_BORDER)
+    withBorder = DEFAULT_WITH_BORDER)
 {
     linear_extrude(thickness)
     RandoLineCoasterRound2D(startingPoint, numLines, radius, thickness, fn);
