@@ -5,11 +5,14 @@ DXF_FILES := $(patsubst %.scad,%.dxf,$(SRC_FILES))
 SVG_FILES := $(patsubst %.scad,%.svg,$(SRC_FILES))
 PNG_FILES := $(patsubst %.scad,%.png,$(SRC_FILES))
 
-ALL := $(DXF_FILES) $(SVG_FILES) $(PNG_FILES)
+ALL := $(DXF_FILES) $(SVG_FILES) $(PNG_FILES) README.md
 
 .PHONY: all clean
 
 all: $(ALL)
+
+README.md: $(PNG_FILES)
+	ls *.png | awk '{ print "!["$$1"]("$$1")" }' > $@
 
 %.dxf: %.scad $(MAIN_SRC_FILE)
 	openscad -o $@ $<
