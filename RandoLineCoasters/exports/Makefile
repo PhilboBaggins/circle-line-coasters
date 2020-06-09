@@ -1,4 +1,4 @@
-.PHONY: all clean
+MAIN_SRC_FILE := ../RandoLineCoasters.scad
 
 SRC_FILES := $(wildcard *.scad)
 DXF_FILES := $(patsubst %.scad,%.dxf,$(SRC_FILES))
@@ -7,12 +7,14 @@ PNG_FILES := $(patsubst %.scad,%.png,$(SRC_FILES))
 
 ALL := $(DXF_FILES) $(SVG_FILES) $(PNG_FILES)
 
+.PHONY: all clean
+
 all: $(ALL)
 
-%.dxf: %.scad ../RandoLineCoasters.scad
+%.dxf: %.scad $(MAIN_SRC_FILE)
 	openscad -o $@ $<
 
-%.svg: %.scad ../RandoLineCoasters.scad
+%.svg: %.scad $(MAIN_SRC_FILE)
 	openscad -o $@ $<
 
 %.png: %.svg
