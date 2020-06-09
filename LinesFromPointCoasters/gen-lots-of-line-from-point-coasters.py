@@ -19,17 +19,19 @@ def drange(x, y, jump):
         x += decimal.Decimal(jump)
 
 
-def genOpenScadSource(importFilePath, startingPoint):
+def genOpenScadSource(importFilePath, startingPoint, withBorder):
     return textwrap.dedent('''
     use <%s>;
 
     startingPoint = [%s, 0];
-    LinesFromPointCoaster2D(startingPoint);
-    ''' % (importFilePath, startingPoint)).strip()
+    withBoarder = %s;
+    LinesFromPointCoaster2D(startingPoint=startingPoint, withBoarder=withBoarder);
+    ''' % (importFilePath, startingPoint, "true" if withBorder else "false")).strip()
 
 
-def getFileName(outDir, startingPoint):
-    fileName = 'lines-from-point-coaster-%s' % startingPoint
+def getFileName(outDir, startingPoint, withBorder):
+    border = "with-border" if withBorder else "without-border"
+    fileName = 'lines-from-point-coaster-%s-%s' % (border, startingPoint)
     fileName = fileName.replace('.', '-') + '.scad'
     return fileName
 
@@ -51,11 +53,12 @@ def main(start, end, increment, outDir, verbose=0):
 
     for x in drange(start, end, increment):
         if verbose > 0:
-            print('Creating OpenSCAD source code file for seed', x)
-        sourceCode = genOpenScadSource(importFilePath, x)
-        filePath = getFileName(outDir, x)
-        with open(filePath, 'w+') as f:
-            f.write(sourceCode)
+            print('Creating OpenSCAD source code files for seed', x)
+        for border in [True, False]:
+            sourceCode = genOpenScadSource(importFilePath, x, border)
+            filePath = getFileName(outDir, x, border)
+            with open(filePath, 'w+') as f:
+                f.write(sourceCode)
 
 
 if __name__ == '__main__':
