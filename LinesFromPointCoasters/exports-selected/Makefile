@@ -21,7 +21,7 @@ README.md: $(PNG_FILES)
 	openscad -o $@ $<
 
 %.png: %.svg
-	"C:\Program Files\ImageMagick-7.0.10-Q16\magick" convert $< $@
+	magick convert $< $@
 
 clean:
 	rm -f $(ALL)
