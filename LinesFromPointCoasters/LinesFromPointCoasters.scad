@@ -80,5 +80,3 @@ module LinesFromPointCoaster3D_Array(
     linear_extrude(thickness)
     LinesFromPointCoaster2D_Array(numLines, radius, thickness, fn);
 }
-
-LinesFromPointCoaster3D_Array();
