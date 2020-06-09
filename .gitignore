@@ -1,0 +1,9 @@
+LinesFromPointCoasters/exports/*.dxf
+LinesFromPointCoasters/exports/*.png
+LinesFromPointCoasters/exports/*.scad
+LinesFromPointCoasters/exports/*.svg
+
+RandoLineCoasters/exports/*.dxf
+RandoLineCoasters/exports/*.png
+RandoLineCoasters/exports/*.scad
+RandoLineCoasters/exports/*.svg
