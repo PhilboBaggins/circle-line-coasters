@@ -55,8 +55,10 @@ module LinesFromPointCoaster2D_Array(
     thickness = DEFAULT_THICKNESS,
     fn = DEFAULT_FN)
 {
-    maxDist = radius - thickness;
-    for (x = [-maxDist : maxDist])
+    //maxDist = radius - thickness;
+    maxDist = 110;
+
+    for (x = [0 : maxDist])
     {
         translate([x * radius * 2, radius * 2])
         LinesFromPointCoaster2D([x, 0], numLines, radius, thickness, fn);
