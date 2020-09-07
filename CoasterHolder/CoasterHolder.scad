@@ -113,10 +113,13 @@ module CoasterHolder3D(
 
     // Stand-offs
     zPos = coasterThickness;
-    translate([screwPosX1(sizeX), screwPosY1(sizeY), zPos]) cylinder(r = SCREW_HOLE_RADIUS, h = coasterRadius, $fn = fn);
-    translate([screwPosX2(sizeX), screwPosY1(sizeY), zPos]) cylinder(r = SCREW_HOLE_RADIUS, h = coasterRadius, $fn = fn);
-    translate([screwPosX1(sizeX), screwPosY2(sizeY), zPos]) cylinder(r = SCREW_HOLE_RADIUS, h = coasterRadius, $fn = fn);
-    translate([screwPosX2(sizeX), screwPosY2(sizeY), zPos]) cylinder(r = SCREW_HOLE_RADIUS, h = coasterRadius, $fn = fn);
+    color("grey")
+    {
+        translate([screwPosX1(sizeX), screwPosY1(sizeY), zPos]) cylinder(r = SCREW_HOLE_RADIUS, h = coasterRadius, $fn = fn);
+        translate([screwPosX2(sizeX), screwPosY1(sizeY), zPos]) cylinder(r = SCREW_HOLE_RADIUS, h = coasterRadius, $fn = fn);
+        translate([screwPosX1(sizeX), screwPosY2(sizeY), zPos]) cylinder(r = SCREW_HOLE_RADIUS, h = coasterRadius, $fn = fn);
+        translate([screwPosX2(sizeX), screwPosY2(sizeY), zPos]) cylinder(r = SCREW_HOLE_RADIUS, h = coasterRadius, $fn = fn);
+    }
 }
 
 //CoasterHolder2D();
