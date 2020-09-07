@@ -1,6 +1,6 @@
 Coaster holder
 ==============
 
-TODO: Add description
+A holder for the coasters.
 
 ![./exports/CoasterHolder.png](./exports/CoasterHolder.png)
