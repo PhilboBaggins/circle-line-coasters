@@ -67,11 +67,17 @@ module CoasterHolder2D(
     coasterRadius = DEFAULT_COASTER_RADIUS,
     fn = DEFAULT_FN)
 {
+    interPanelSpacing = 1;
+
+    sizeX = calcSizeX(coasterThickness, numCoasters);
     sizeY = calcSizeY(coasterRadius);
+
+    echo(str("Panel size = [", sizeX, " mm, ", sizeY, " mm]"));
+    echo(str("Total size = [", sizeX, " mm, ", sizeY * 2 + interPanelSpacing, " mm]"));
 
     CoasterHolder2D_Bottom(numCoasters, coasterThickness, coasterRadius, fn);
     
-    translate([0, sizeY + 1])
+    translate([0, sizeY + interPanelSpacing])
     CoasterHolder2D_Top(numCoasters, coasterThickness, coasterRadius, fn);
 }
 
