@@ -3,4 +3,4 @@ Coaster holder
 
 TODO: Add description
 
-TODO: Add photo
+![./exports/CoasterHolder.png](./exports/CoasterHolder.png)
